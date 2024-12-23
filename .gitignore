@@ -1,2 +1,9 @@
+**/__pycache__/
+.env
+
+# Django
+oboo_api/migrations/
+oboo_api/static/admin
+
 # PyCharm
 .idea/
