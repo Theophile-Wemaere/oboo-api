@@ -1,0 +1,375 @@
+# Buildings
+- model: oboo_api.Building
+  pk: 1
+  fields:
+    name: "NDC"
+    created_at: "2025-01-01T10:00:00+02:00"
+- model: oboo_api.Building
+  pk: 2
+  fields:
+    name: "NDL"
+    created_at: "2025-01-01T10:00:00+02:00"
+
+# Floors
+# NDC
+- model: oboo_api.Floor
+  pk: 1
+  fields:
+    number: 0
+    name: "Ground Floor"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 1
+- model: oboo_api.Floor
+  pk: 2
+  fields:
+    number: 1
+    name: "Floor 1"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 1
+- model: oboo_api.Floor
+  pk: 3
+  fields:
+    number: 2
+    name: "Floor 2"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 1
+- model: oboo_api.Floor
+  pk: 4
+  fields:
+    number: 3
+    name: "Floor 3"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 1
+- model: oboo_api.Floor
+  pk: 5
+  fields:
+    number: 4
+    name: "Floor 4"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 1
+- model: oboo_api.Floor
+  pk: 6
+  fields:
+    number: 5
+    name: "Floor 5"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 1
+- model: oboo_api.Floor
+  pk: 7
+  fields:
+    number: 6
+    name: "Floor 6"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 1
+# NDL
+- model: oboo_api.Floor
+  pk: 8
+  fields:
+    number: 0
+    name: "Ground Floor"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 2
+- model: oboo_api.Floor
+  pk: 9
+  fields:
+    number: 1
+    name: "Floor 1"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 2
+- model: oboo_api.Floor
+  pk: 10
+  fields:
+    number: 2
+    name: "Floor 2"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 2
+- model: oboo_api.Floor
+  pk: 11
+  fields:
+    number: 3
+    name: "Floor 3"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 2
+- model: oboo_api.Floor
+  pk: 12
+  fields:
+    number: 4
+    name: "Floor 4"
+    created_at: "2025-01-01T10:00:00+02:00"
+    building: 2
+# Rooms
+# NDC
+- model: oboo_api.Room
+  pk: 1
+  fields:
+    number: "N15"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 2
+- model: oboo_api.Room
+  pk: 2
+  fields:
+    number: "N16A"
+    name: "Large classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 2
+- model: oboo_api.Room
+  pk: 3
+  fields:
+    number: "N16B"
+    name: "Large classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 2
+- model: oboo_api.Room
+  pk: 4
+  fields:
+    number: "N18"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 2
+- model: oboo_api.Room
+  pk: 5
+  fields:
+    number: "N19"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 2
+- model: oboo_api.Room
+  pk: 6
+  fields:
+    number: "N23"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 3
+- model: oboo_api.Room
+  pk: 7
+  fields:
+    number: "N24"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 3
+- model: oboo_api.Room
+  pk: 8
+  fields:
+    number: "N26"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 3
+- model: oboo_api.Room
+  pk: 9
+  fields:
+    number: "N28"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 3
+- model: oboo_api.Room
+  pk: 10
+  fields:
+    number: "N33"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 4
+- model: oboo_api.Room
+  pk: 11
+  fields:
+    number: "N34"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 4
+- model: oboo_api.Room
+  pk: 12
+  fields:
+    number: "N36"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 4
+- model: oboo_api.Room
+  pk: 13
+  fields:
+    number: "N38"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 4
+- model: oboo_api.Room
+  pk: 14
+  fields:
+    number: "N43"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 5
+- model: oboo_api.Room
+  pk: 15
+  fields:
+    number: "N44"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 5
+- model: oboo_api.Room
+  pk: 16
+  fields:
+    number: "N46"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 5
+- model: oboo_api.Room
+  pk: 17
+  fields:
+    number: "N48A"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 5
+- model: oboo_api.Room
+  pk: 18
+  fields:
+    number: "N48B"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 5
+- model: oboo_api.Room
+  pk: 19
+  fields:
+    number: "N410"
+    name: "Amphithéâtre"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 6
+- model: oboo_api.Room
+  pk: 20
+  fields:
+    number: "N411"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 6
+# NDL
+- model: oboo_api.Room
+  pk: 21
+  fields:
+    number: "L012"
+    name: "Amphithéâtre"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 8
+- model: oboo_api.Room
+  pk: 22
+  fields:
+    number: "L016"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 8
+- model: oboo_api.Room
+  pk: 23
+  fields:
+    number: "L017"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 8
+- model: oboo_api.Room
+  pk: 24
+  fields:
+    number: "L018"
+    name: "Cloître"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 8
+- model: oboo_api.Room
+  pk: 25
+  fields:
+    number: "L108"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 9
+- model: oboo_api.Room
+  pk: 26
+  fields:
+    number: "L114"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 9
+- model: oboo_api.Room
+  pk: 27
+  fields:
+    number: "L115"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 9
+- model: oboo_api.Room
+  pk: 28
+  fields:
+    number: "L206"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 10
+- model: oboo_api.Room
+  pk: 29
+  fields:
+    number: "L207"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 10
+- model: oboo_api.Room
+  pk: 30
+  fields:
+    number: "L212"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 10
+- model: oboo_api.Room
+  pk: 31
+  fields:
+    number: "L213"
+    name: "Lab room"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 10
+- model: oboo_api.Room
+  pk: 32
+  fields:
+    number: "L220"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 10
+- model: oboo_api.Room
+  pk: 33
+  fields:
+    number: "L305"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 11
+- model: oboo_api.Room
+  pk: 34
+  fields:
+    number: "L306"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 11
+- model: oboo_api.Room
+  pk: 35
+  fields:
+    number: "L311"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 11
+- model: oboo_api.Room
+  pk: 36
+  fields:
+    number: "L312"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 11
+- model: oboo_api.Room
+  pk: 37
+  fields:
+    number: "L313"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 11
+- model: oboo_api.Room
+  pk: 38
+  fields:
+    number: "L416"
+    name: "Auditorium"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 12
+- model: oboo_api.Room
+  pk: 39
+  fields:
+    number: "L417"
+    name: "Classroom"
+    created_at: "2025-01-01T10:00:00+02:00"
+    floor: 12
