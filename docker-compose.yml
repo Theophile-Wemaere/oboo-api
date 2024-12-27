@@ -51,7 +51,7 @@ services:
       CSRF_TRUSTED_ORIGINS: http://localhost:8888 http://127.0.0.1:8888
       DB_ENGINE: ${DB_ENGINE}
       DB_HOST: oboo-db
-      DB_PORT: ${DB_PORT}
+      DB_PORT: 3306
       DB_NAME: ${DB_NAME}
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
@@ -65,7 +65,7 @@ services:
       # /!\ Important, setting this to true will DELETE all data in the database and load the initial data.
       # If you are deploying the application for the very first time, set this to true.
       # If you want to redeploy the application with existing data, set this to false.
-      INITIAL_DEPLOY: true
+      INITIAL_DEPLOY: ${INITIAL_DEPLOY}
     volumes:
       # The container will collect all static files and put them in /app/static, which is bound to ./oboo_api/static on the host
       # This will ensure that the static files for the admin app are collected
