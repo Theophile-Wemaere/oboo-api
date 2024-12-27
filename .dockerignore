@@ -1,0 +1,8 @@
+.git
+.idea
+.dockerignore
+.env
+.gitignore
+docker-compose.yml
+Dockerfile
+./oboo_api/static/admin/
