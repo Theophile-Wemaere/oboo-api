@@ -37,6 +37,9 @@ SECRET_KEY=<secret-key>
 DJANGO_SUPERUSER_USERNAME=admin
 DJANGO_SUPERUSER_PASSWORD=<superuser password>
 DJANGO_SUPERUSER_EMAIL=<superuser email>
+# If using a reverse proxy, add its IP to both fields below
+DJANGO_ALLOWED_HOSTS='localhost 127.0.0.1 [::1]'
+CSRF_TRUSTED_ORIGINS='http://localhost:8888 http://127.0.0.1:8888'
 # Oboo API
 # Define the exposed port of the API to suit your needs
 OBOO_API_PORT=8888
