@@ -67,7 +67,6 @@ EMAIL_ADDRESS=email
 EMAIL_PASSWORD=password 
 EMAIL_DOMAIN=smtp.gmail.com
 EMAIL_PORT=587
-
 ```
 
 ## Deployment

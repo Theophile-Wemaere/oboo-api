@@ -29,7 +29,7 @@ def handle_otp(receiver:str)->tuple:
     allowed_domains = [
         'isep.fr',
         'eleve.isep.fr',
-        'external.isep.fr'
+        'ext.isep.fr'
     ]
 
     # check if email is valid
