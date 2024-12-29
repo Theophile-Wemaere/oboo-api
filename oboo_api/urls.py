@@ -8,4 +8,5 @@ urlpatterns = [
     path("floors", views.floors, name="floors"),
     path("rooms", views.rooms, name="rooms"),
     path("timeslots", views.time_slots, name="time_slots"),
+    path("sendotp", views.send_otp, name="send_otp")
 ]

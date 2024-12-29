@@ -46,6 +46,7 @@ def download_calendars(rooms_list: list[str]) -> None:
 
     :param rooms_list: A list of strings representing the numbers of the rooms.
     """
+
     if len(rooms_list) == 0:
         return
 

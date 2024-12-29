@@ -58,6 +58,11 @@ services:
       # Hyperplanning credentials
       HP_USERNAME: ${HP_USERNAME}
       HP_PASSWORD: ${HP_PASSWORD}
+      # email info
+      EMAIL_ADDRESS: ${EMAIL_ADDRESS}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+      EMAIL_DOMAIN: ${EMAIL_DOMAIN}
+      EMAIL_PORT: ${EMAIL_PORT}
       # This is the default admin account, make sure to use secure credentials !
       DJANGO_SUPERUSER_USERNAME: admin
       DJANGO_SUPERUSER_PASSWORD: admin

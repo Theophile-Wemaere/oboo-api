@@ -3,6 +3,8 @@ from django.http import HttpResponse, JsonResponse
 
 from .models import Building, Floor, Room, TimeSlot
 
+from .authfunc import handle_otp
+
 
 def index(request):
     return HttpResponse("Hello, world. You're at the Oboo API index.")
@@ -26,3 +28,33 @@ def time_slots(request):
     time_slots = TimeSlot.objects.all()
     time_slots_dicts = [model_to_dict(time_slot, fields=('id', 'subject', 'start_time', 'end_time', 'room')) for time_slot in time_slots]
     return JsonResponse(time_slots_dicts, safe=False)
+
+def send_otp(request):
+    """
+    send OTP to email address in GET parameter 'email'
+    """
+
+    receiver = request.GET.get('email', None)
+    if receiver is None:
+        return JsonResponse({
+            "status":"missing_parameter"
+        })
+
+
+    otp,status = handle_otp(receiver)
+    if status == 0:
+        return JsonResponse({
+            "status":"success"
+        })
+    elif status == -1:
+        return JsonResponse({
+            "status":"not_isep_email"
+        })
+    elif status == -2:
+        return JsonResponse({
+            "status":"bad_emails"
+        })
+    else:
+        return JsonResponse({
+            "status":"internal_error"
+        })
