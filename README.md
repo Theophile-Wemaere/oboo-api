@@ -62,6 +62,12 @@ HP_URL=https://planning.isep.fr/etudiant
 HP_USERNAME=<Hyperplanning username>
 # HP_PASSWORD must be in base64 !
 HP_PASSWORD=<Hyperplanning password in base64>
+# GMAIL credentials
+EMAIL_ADDRESS=email
+EMAIL_PASSWORD=password 
+EMAIL_DOMAIN=smtp.gmail.com
+EMAIL_PORT=587
+
 ```
 
 ## Deployment
