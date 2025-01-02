@@ -1,5 +1,7 @@
 import base64
+import logging
 import os
+import sys
 import time
 from datetime import date, datetime
 from tempfile import gettempdir
@@ -22,19 +24,27 @@ GECKODRIVER_URL = "https://github.com/mozilla/geckodriver/releases/download/v0.3
 TEMP_DIRECTORY = gettempdir()
 GECKODRIVER_PATH = f"{TEMP_DIRECTORY}/geckodriver"
 CALENDARS_DIRECTORY = f"{TEMP_DIRECTORY}/calendars"
+LOG_FILE = f"{TEMP_DIRECTORY}/hpfetch.log"
 
+# Basic logger to log both to LOG_FILE and STDOUT
+logging.basicConfig(
+    handlers=[logging.FileHandler(LOG_FILE, 'a'), logging.StreamHandler(sys.stdout)],
+    format='[%(asctime)s] [%(levelname)s]: %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+    level=logging.INFO
+)
 
 def download_geckodriver() -> None:
     """
     Downloads the geckodriver required by Selenium from the Mozilla GitHub and stores it in the current directory.
     """
-    print("[hpfetch] Downloading the Gecko driver from GitHub...")
+    logging.info("[hpfetch] Downloading the Gecko driver from GitHub...")
     r = requests.get(GECKODRIVER_URL)
     with open(f"{GECKODRIVER_PATH}.tar.gz", "wb") as file:
         file.write(r.content)
     os.system(f"tar -xzvf {GECKODRIVER_PATH}.tar.gz -C {TEMP_DIRECTORY}")
     os.remove(f"{GECKODRIVER_PATH}.tar.gz")
-    print("[hpfetch] Done !")
+    logging.info("[hpfetch] Done !")
 
 
 # For each room, download its calendar on HP using Selenium
@@ -56,7 +66,7 @@ def download_calendars(rooms_list: list[str]) -> None:
 
     # Create the calendars directory if it does not exist
     if not os.path.exists(CALENDARS_DIRECTORY):
-        print(f"[hpfetch] Creating the {CALENDARS_DIRECTORY} directory.")
+        logging.info(f"[hpfetch] Creating the {CALENDARS_DIRECTORY} directory.")
         os.mkdir(CALENDARS_DIRECTORY)
 
     options = Options()
@@ -80,7 +90,7 @@ def download_calendars(rooms_list: list[str]) -> None:
 
     download_failed = False
     for room in rooms_list:
-        print(f"[hpfetch] Downloading calendar of room {room}...", end="", flush=True)
+        logging.info(f"[hpfetch] Downloading calendar of room {room}...")
         try:
             # click on search bar
             driver.find_element(By.ID, "GInterface.Instances[1].Instances[1].bouton_Edit").click()
@@ -89,10 +99,10 @@ def download_calendars(rooms_list: list[str]) -> None:
             # set value to current room and valid
             driver.find_element(By.ID, "GInterface.Instances[1].Instances[1].bouton_Edit").send_keys(room)
             driver.find_element(By.ID, "GInterface.Instances[1].Instances[1].bouton_Edit").send_keys(Keys.ENTER)
-            time.sleep(1)
+            time.sleep(1.5)
             # click on ICAL export button
             driver.find_element(By.ID, "GInterface.Instances[0].Instances[4]_ical").click()
-            time.sleep(1)
+            time.sleep(1.5)
             # get link
             link_element = driver.find_element(By.CSS_SELECTOR, '[aria-label="L\'emploi du temps est récupéré tel qu\'il est et ne sera pas mis à jour automatiquement. Cliquez sur le lien ci-dessous : Exporter l\'emploi du temps au format iCal"]')
             ical_link = str(link_element.get_attribute("href"))
@@ -106,13 +116,10 @@ def download_calendars(rooms_list: list[str]) -> None:
             # press ESCAPE and move on to the next room
             ActionChains(driver).send_keys(Keys.ESCAPE).perform()
             download_failed = True
-            print(e)
-            print("\t[FAILED]")
-        else:
-            print("\t[OK]")
+            logging.error(f"[hpfetch] Failed downloading calendar of room {room}:\n{e}")
 
     if download_failed:
-        print("[hpfetch] [WARN] Some calendars could not be downloaded. Ensure that the schedules for the rooms in question are available on Hyperplanning.")
+        logging.warn("[hpfetch] Some calendars could not be downloaded. Ensure that the schedules for the rooms in question are available on Hyperplanning.")
 
     driver.close()
 
