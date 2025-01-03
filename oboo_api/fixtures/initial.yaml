@@ -3,11 +3,15 @@
   pk: 1
   fields:
     name: "NDC"
+    long_name: "Notre-Dame-des-Champs"
+    city: "Paris, 14th district"
     created_at: "2025-01-01T10:00:00+02:00"
 - model: oboo_api.Building
   pk: 2
   fields:
     name: "NDL"
+    long_name: "Notre-Dame-de-Lorette"
+    city: "Issy-les-Moulineaux"
     created_at: "2025-01-01T10:00:00+02:00"
 
 # Floors

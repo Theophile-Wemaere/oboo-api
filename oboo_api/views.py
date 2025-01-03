@@ -11,7 +11,7 @@ def index(request):
 
 def buildings(request):
     buildings = Building.objects.all()
-    buildings_dicts = [model_to_dict(building, fields=('id', 'name')) for building in buildings]
+    buildings_dicts = [model_to_dict(building, fields=('id', 'name', 'long_name', 'city')) for building in buildings]
     return JsonResponse(buildings_dicts, safe=False)
 
 def floors(request):

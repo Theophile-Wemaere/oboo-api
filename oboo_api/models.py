@@ -13,6 +13,8 @@ class Building(models.Model):
     A class representing a physical building of ISEP.
     """
     name = models.CharField(max_length=64, unique=True)
+    long_name = models.CharField(max_length=64)
+    city = models.CharField(max_length=64)
     created_at = models.DateTimeField("Creation timestamp")
 
     def __str__(self):
