@@ -113,6 +113,31 @@ class TimeSlot(models.Model):
             print("[WARN] Some time slots could not be created (some room calendars may be missing).")
 
 
+class OTP(models.Model):
+    """
+    A class representing a One Time Password.
+    """
+    code = models.CharField(max_length=6)
+    email = models.CharField(max_length=64)
+    created_at = models.DateTimeField("Creation timestamp")
+    expiration = models.DateTimeField("Expiration date")
+
+    def __str__(self):
+        return f'[OTP: {self.code} ({self.email})]'
+
+
+class APIKey(models.Model):
+    """
+    A class representing an API Key.
+    """
+    key = models.CharField(max_length=64)
+    email = models.CharField(max_length=64)
+    created_at = models.DateTimeField("Creation timestamp")
+    expiration = models.DateTimeField("Expiration date")
+
+    def __str__(self):
+        return f'[APIKey: {self.key} ({self.email})]'
+
 # This is stupid, but there is no way to make django-crontab call a static method from a class (the function to call must not be in a class)
 # This is due to the way django-crontab parses the settings.CRONJOBS list, see: https://github.com/kraiz/django-crontab/blob/master/django_crontab/crontab.py#L169-L172
 def update_time_slots():
