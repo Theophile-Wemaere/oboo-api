@@ -64,9 +64,9 @@ services:
       EMAIL_DOMAIN: ${EMAIL_DOMAIN}
       EMAIL_PORT: ${EMAIL_PORT}
       # This is the default admin account, make sure to use secure credentials !
-      DJANGO_SUPERUSER_USERNAME: admin
-      DJANGO_SUPERUSER_PASSWORD: admin
-      DJANGO_SUPERUSER_EMAIL: admin@example.org
+      DJANGO_SUPERUSER_USERNAME: ${DJANGO_SUPERUSER_USERNAME}
+      DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
+      DJANGO_SUPERUSER_EMAIL: ${DJANGO_SUPERUSER_EMAIL}
       # /!\ Important, setting this to true will DELETE all data in the database and load the initial data.
       # If you are deploying the application for the very first time, set this to true.
       # If you want to redeploy the application with existing data, set this to false.
